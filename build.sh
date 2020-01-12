@@ -3,7 +3,7 @@
 destinationtags=(dockerregistry.vpn.freunds.net:5000/freund/ansible-lab timfreund/ansible-lab)
 
 set -x
-for variant in `ls -d -- */ | grep -v common | sed -e 's|/||'`
+for variant in `ls -d -- */ | egrep -v "common|alm" | sed -e 's|/||'`
 do
     cp common/* ${variant}
     cd ${variant}
@@ -13,3 +13,11 @@ do
     done;
     cd ..
 done
+
+# ... need a better way of building images
+cd alm
+for tag in ${destinationtags[@]}
+do
+    docker build -t ${tag}:alm .
+done
+cd ..

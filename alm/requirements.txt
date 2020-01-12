@@ -1,0 +1,2 @@
+IPython
+-e git+https://github.com/timfreund/ansible-lab-manager.git#egg=ansible-lab-manager

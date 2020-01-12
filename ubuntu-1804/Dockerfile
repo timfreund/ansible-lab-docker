@@ -5,6 +5,7 @@ RUN apt-get update && \
         git \
         openssh-client \
         openssh-server \
+        python3-venv \
         sudo \
         systemd-sysv \
         && \
